@@ -7,20 +7,20 @@
 
 import Foundation
 
-struct SystemKeychainClient: KeychainClient {
-    func add(_ query: CFDictionary) -> OSStatus {
+public struct SystemKeychainClient: KeychainClient {
+    public func add(_ query: CFDictionary) -> OSStatus {
         SecItemAdd(query, nil)
     }
 
-    func update(_ query: CFDictionary, _ attributes: CFDictionary) -> OSStatus {
+    public func update(_ query: CFDictionary, _ attributes: CFDictionary) -> OSStatus {
         SecItemUpdate(query, attributes)
     }
 
-    func copyMatching(_ query: CFDictionary, _ result: UnsafeMutablePointer<AnyObject?>) -> OSStatus {
+    public func copyMatching(_ query: CFDictionary, _ result: UnsafeMutablePointer<AnyObject?>) -> OSStatus {
         SecItemCopyMatching(query, result)
     }
 
-    func delete(_ query: CFDictionary) -> OSStatus {
+    public func delete(_ query: CFDictionary) -> OSStatus {
         SecItemDelete(query)
     }
 }
