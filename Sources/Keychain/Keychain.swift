@@ -9,18 +9,18 @@
 
 import AuthenticationServices
 
-class Keychain {
+public class Keychain {
     let service: String
     let account: String
     let client: KeychainClient
 
-    init(service: String, account: String, client: KeychainClient = SystemKeychainClient()) {
+    public init(service: String, account: String, client: KeychainClient = SystemKeychainClient()) {
         self.service = service
         self.account = account
         self.client = client
     }
 
-    func save(_ data: Data) {
+    public func save(_ data: Data) {
         let query = [
             kSecValueData: data,
             kSecClass: kSecClassGenericPassword,
@@ -35,7 +35,7 @@ class Keychain {
         }
     }
 
-    func update(_ data: Data) {
+    public func update(_ data: Data) {
         let query = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
@@ -46,7 +46,7 @@ class Keychain {
         let _ = client.update(query, attributes)
     }
 
-    func read() -> Data? {
+    public func read() -> Data? {
         let query = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
@@ -60,7 +60,7 @@ class Keychain {
         return (status == errSecSuccess) ? result as? Data : nil
     }
 
-    func delete() {
+    public func delete() {
         let query = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
