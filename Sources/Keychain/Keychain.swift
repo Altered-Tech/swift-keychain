@@ -10,9 +10,9 @@
 import AuthenticationServices
 
 public class Keychain {
-    let service: String
-    let account: String
-    let client: KeychainClient
+    public let service: String
+    public let account: String
+    public let client: KeychainClient
 
     public init(service: String, account: String, client: KeychainClient = SystemKeychainClient()) {
         self.service = service
