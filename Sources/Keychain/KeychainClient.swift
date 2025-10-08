@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol KeychainClient {
-    func add(_ query: CFDictionary) -> OSStatus
-    func update(_ query: CFDictionary, _ attributes: CFDictionary) -> OSStatus
-    func copyMatching(_ query: CFDictionary, _ result: UnsafeMutablePointer<AnyObject?>) -> OSStatus
-    func delete(_ query: CFDictionary) -> OSStatus
+public protocol KeychainClient {
+    public func add(_ query: CFDictionary) -> OSStatus
+    public func update(_ query: CFDictionary, _ attributes: CFDictionary) -> OSStatus
+    public func copyMatching(_ query: CFDictionary, _ result: UnsafeMutablePointer<AnyObject?>) -> OSStatus
+    public func delete(_ query: CFDictionary) -> OSStatus
 }
