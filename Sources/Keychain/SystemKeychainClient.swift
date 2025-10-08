@@ -8,6 +8,9 @@
 import Foundation
 
 public struct SystemKeychainClient: KeychainClient {
+    
+    public init() {}
+    
     public func add(_ query: CFDictionary) -> OSStatus {
         SecItemAdd(query, nil)
     }
